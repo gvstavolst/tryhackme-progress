@@ -94,4 +94,4 @@ tryhackme-progress/
 
 ---
 
-<sub>Atualizado automaticamente via GitHub Actions. Estudante de cybersecurity — Blue Team / SOC.</sub>
+<sub>Atualizado automaticamente em: 2026-05-06 17:43 UTC — [ver perfil](https://tryhackme.com/p/gvstavolst)</sub>
