@@ -18,18 +18,16 @@ jobs:
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
 
-      - name: Download TryHackMe Badge
+      - name: Update timestamp no README
         run: |
-          mkdir -p assets
-          curl -L -o assets/tryhackme-badge.png \
-            "https://tryhackme-badges.s3.amazonaws.com/gvstavolst.png"
-          echo "Badge baixado com sucesso!"
-          ls -la assets/
+          DATE=$(date -u '+%Y-%m-%d %H:%M UTC')
+          sed -i "s|<sub>Atualizado automaticamente.*|<sub>Atualizado automaticamente em: $DATE — [ver perfil](https://tryhackme.com/p/gvstavolst)</sub>|" README.md
+          echo "Timestamp atualizado: $DATE"
 
-      - name: Commit badge
+      - name: Commit changes
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add assets/tryhackme-badge.png
-          git diff --staged --quiet || git commit -m "chore: atualiza badge TryHackMe [skip ci]"
+          git add README.md
+          git diff --staged --quiet || git commit -m "chore: atualiza timestamp do badge [skip ci]"
           git push

@@ -1,6 +1,6 @@
 # 📡 TryHackMe Progress — Gustavo Lemos
 
-[![TryHackMe](https://tryhackme-badges.s3.amazonaws.com/gvstavolst.png)](https://tryhackme.com/p/gvstavolst)
+[![TryHackMe](https://img.shields.io/badge/TryHackMe-gvstavolst-212C42?style=for-the-badge&logo=tryhackme&logoColor=white)](https://tryhackme.com/p/gvstavolst)
 
 > Documentação do meu progresso em cybersecurity pela plataforma TryHackMe.
 > Foco em **Blue Team**, fundamentos de redes e trilha SOC Level 1.
@@ -94,4 +94,4 @@ tryhackme-progress/
 
 ---
 
-<sub>Atualizado manualmente conforme progresso. Estudante de cybersecurity — Blue Team / SOC.</sub>
+<sub>Atualizado automaticamente via GitHub Actions. Estudante de cybersecurity — Blue Team / SOC.</sub>
