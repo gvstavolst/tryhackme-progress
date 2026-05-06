@@ -12,33 +12,23 @@ permissions:
 
 jobs:
   update-badge:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-22.04
+
     steps:
       - name: Checkout
         uses: actions/checkout@v4
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
 
-      - name: Verify TryHackMe profile is accessible
+      - name: Configure Git Identity
         run: |
-          STATUS=$(curl -o /dev/null -s -w "%{http_code}" https://tryhackme.com/p/gvstavolst)
-          echo "TryHackMe profile status: $STATUS"
-          if [ "$STATUS" = "200" ]; then
-            echo "✅ Profile accessible!"
-          else
-            echo "⚠️ Profile returned status $STATUS — badge may not update."
-          fi
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
 
-      - name: Update README timestamp
-        run: |
-          DATE=$(date -u '+%Y-%m-%d %H:%M UTC')
-          sed -i "s|<sub>Atualizado.*|<sub>Atualizado automaticamente em: $DATE — [ver perfil](https://tryhackme.com/p/gvstavolst)</sub>|" README.md
-          echo "Timestamp atualizado: $DATE"
-
-      - name: Commit changes
-        uses: stefanzweifel/git-auto-commit-action@v5
+      - name: Fetch TryHackMe Badge
+        uses: DhanushNehru/tryhackme-badge-action-workflow@v1.0
         with:
-          commit_message: "chore: auto-update badge timestamp [${{ github.run_number }}]"
-          file_pattern: README.md
-          commit_user_name: github-actions[bot]
-          commit_user_email: github-actions[bot]@users.noreply.github.com
+          image_path: './assets/tryhackme-badge.png'
+          username: ${{ secrets.THM_USERNAME }}
+          user_id: ${{ secrets.THM_USER_ID }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
