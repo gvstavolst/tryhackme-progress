@@ -1,22 +1,14 @@
-# 📝 Writeups
+# Writeups
 
-Documentação das rooms completadas no TryHackMe.
+Aqui ficam os writeups das rooms concluídas no TryHackMe.
 
-Cada arquivo segue a estrutura:
-- **Objetivo da room**
-- **Ferramentas utilizadas**
-- **Passo a passo** (comandos e raciocínio)
-- **Flags capturadas**
-- **Aprendizados**
+## Padrão
 
----
+- Objetivo da room.
+- Técnicas usadas.
+- Evidências e comandos.
+- Lições para SOC / Blue Team.
 
-## Índice
+## Template
 
-| Room | Trilha | Dificuldade | Data |
-|---|---|---|---|
-| *(em breve)* | — | — | — |
-
----
-
-> **Nota:** Writeups são escritos em português para facilitar revisão e consulta futura.
+Use `TEMPLATE.md` como base para novos writeups.
